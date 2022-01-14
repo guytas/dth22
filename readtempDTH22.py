@@ -74,7 +74,7 @@ class Readtemp:
     def _waitResponse(self):
         # response should come within 20-40 us from DTH
         start = time.time() # lockup protection
-        while gpio.input(18): # Should be low pretty soon now
+        while gpio.input(self._pin): # Should be low pretty soon now
             if (time.time() - start) > 0.001: # if more than 1ms, it's too long
                 return(0)
         # we are now at the beginning of its response of 80 us
